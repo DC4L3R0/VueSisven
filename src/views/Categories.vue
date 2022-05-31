@@ -16,7 +16,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="(categories,index) in categories" :key="index">
+                    <tr v-for="categorie in categorie" :key="categorie.id">
                         <th scope="row">{{categorie.id}}</th>
                         <td>{{categorie.name}}</td>
                         <td>{{categorie.description}}</td>
@@ -62,7 +62,7 @@ export default {
                     .then(response => {
                         if (response.data.success) {
                             Swal.fire('Deleted!! ', '', 'success')
-                            this.categorie = response.data.categorie
+                            this.categorie = response.data.categories
                         }
                     })
                 }
@@ -78,8 +78,8 @@ export default {
     },
     mounted(){
         axios
-        .get('http://147.0.0.1:8000/api/categorie')
-        .then(response => (this.categorie = response.data.categorie));
+        .get('http://147.0.0.1:8000/api/categories')
+        .then(response => (this.categories = response.data.categories));
     }, 
 }
 </script>

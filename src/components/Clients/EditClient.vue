@@ -118,7 +118,9 @@ export default {
                         icon: 'success',
                         title: 'Client has been update',
                         showConfirmButton: false,
+                        timer: 2000
                     })
+                }
                 }
             },
             mounted(){
@@ -129,6 +131,6 @@ export default {
                 })
             },
         }
-    }
+    
 
 </script>

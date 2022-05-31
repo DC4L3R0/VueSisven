@@ -15,8 +15,8 @@ import NewModePayment from '../components/ModePayment/NewModePayment.vue'
 import EditModePayment from '../components/ModePayment/EditModePayment.vue'
 
 import Products from '../views/Products.vue'
-import NewProducts from '../components/Products/NewProducts'
-import EditProducts from '../components/Products/EditProducts'
+import NewProducts from '../components/Products/NewProducts.vue'
+import EditProducts from '../components/Products/EditProducts.vue'
 
 const routes = [
   {
@@ -25,7 +25,7 @@ const routes = [
     component: HomeView
   },
   {
-    path: '/edit-client/',
+    path: '/edit-client/:id',
     name: 'EditClient',
     component: EditClient
   },
@@ -40,7 +40,7 @@ const routes = [
     component: Client
   },
   {
-    path: '/edit-categorie/',
+    path: '/edit-categorie/:id',
     name: 'EditCategorie',
     component: EditCategorie
   },

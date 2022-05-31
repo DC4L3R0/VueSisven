@@ -6,7 +6,7 @@
                 Client
             </div>
             <div class="card-body">
-                <form @submit.prevent="saveClient">
+                <form @submit.prevent='saveClient'>
                 <div class="row mb-3">
                     <label for="id" class="form-label">ID</label>
                     <div class="input-group">
@@ -112,7 +112,7 @@ export default {
 
         async saveClient(){
             this.client.id = this.id
-            const res = await axios.post(`http://127.0.0.1:8000/api/client`, this.client)
+            const res = await axios.post(`http://127.0.0.1:8000/api/client/`, this.client)
             console.log(res);
             if (res.status ==200){
                 this.$router.push({name: 'Client'})

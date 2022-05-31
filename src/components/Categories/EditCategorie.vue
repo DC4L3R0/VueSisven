@@ -32,7 +32,7 @@
                     <label for="description" class="form-label">DESCRIPTION</label>
                     <div class="input-group">
                         <div class="input-group-text"> <font-awesome-icon icon="tag" /></div>
-                        <input type="text" class="form-control" id="description" placeholder="Description Categorie" disabled
+                        <input type="text" class="form-control" id="description" placeholder="Description Categorie" 
                         v-model="categorie.description"
                         >
                     </div>
@@ -68,7 +68,7 @@ export default {
             },
 
             async updateClient(){
-                const res = await axios.put(`http://127.0.0.1:8000/api/categorie/${this.categorie.id}`, this.categorie)
+                const res = await axios.put(`http://127.0.0.1:8000/api/categories/${this.categorie.id}`, this.categorie)
 
                 if (res.status ==200){
                     this.$router.push({name: 'Categorie'})
@@ -82,7 +82,7 @@ export default {
             },
             mounted(){
                 this.categorie.id = this.$router.params.id;
-                axios.get(`http://127.0.0.1:8000/api/categorie/${this.categorie.id}`)
+                axios.get(`http://127.0.0.1:8000/api/categories/${this.categorie.id}`)
                 .then(response => {
                     this.categorie = response.data.categorie;
                 })

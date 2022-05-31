@@ -16,17 +16,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="(modepayment,index) in modepayment" :key="index">
-                        <th scope="row">{{modepayment.id}}</th>
-                        <td>{{modepayment.name}}</td>
-                        <td>{{modepayment.other_details}}</td>
+                    <tr v-for="(mode_payment,index) in mode_payment" :key="index">
+                        <th scope="row">{{mode_payment.id}}</th>
+                        <td>{{mode_payment.name}}</td>
+                        <td>{{mode_payment.other_details}}</td>
                         
                         <td>
-                            <button @click="deleteModePayment(modepayment.id)"
+                            <button @click="deleteModePayment(mode_payment.id)"
                                     class="btn btn-danger mx-2">
                                     <font-awesome-icon icon="trash" />
                             </button>
-                            <button @click="editClient(modepayment.id)"
+                            <button @click="editClient(mode_payment.id)"
                                      class="btn btn-warning mx-2">
                                      <font-awesome-icon icon="pencil" />
                             </button>
@@ -58,7 +58,7 @@ export default {
                 confirmButtonText: 'Delete',
             }).then((result) => {
                 if (result.isConfirmed) {
-                    axios.delete(`http://127.0.0.1:8000/api/modepayment/${id}`)
+                    axios.delete(`http://127.0.0.1:8000/api/mode_payment/${id}`)
                     .then(response => {
                         if (response.data.success) {
                             Swal.fire('Deleted!! ', '', 'success')
@@ -78,7 +78,7 @@ export default {
     },
     mounted(){
         axios
-        .get('http://147.0.0.1:8000/api/modepayment')
+        .get('http://147.0.0.1:8000/api/mode_payment')
         .then(response => (this.modepayment = response.data.modepayment));
     }, 
 }

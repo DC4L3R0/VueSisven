@@ -1,13 +1,24 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-
-    <router-link to="/client">Client</router-link> |
-    <router-link to="/categories">Categories</router-link> |
-    <router-link to="/mode_payment">Mode Payment</router-link> |
-    <router-link to="/products">Products</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
+  <nav class="navbar navbar-expand navbar-light bg-light">
+    <router-link to="/client">Client</router-link>
+    <div class="nav navbar-nav">
+   <router-link to="/categories">Categories</router-link>
+    </div>
+    <div class="nav navbar-nav">
+   <router-link to="/mode_payment">Mode Payment</router-link>
+    </div>
+    <div class="nav navbar-nav">
+<router-link to="/products">Products</router-link> 
+    </div>
+    <div class="nav navbar-nav">
+<router-link to="/about">About</router-link>
+</div>
+<div class="nav navbar-nav">
+<router-link to="/">Home</router-link> 
+</div>
+    
+  </nav>
+  <br/>
   <router-view/>
 </template>
 

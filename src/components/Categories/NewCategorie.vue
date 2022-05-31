@@ -6,7 +6,7 @@
                 Categorie
             </div>
             <div class="card-body">
-                <form @submit.prevent="saveCategories">
+                <form @submit.prevent="saveCategorie">
                 <div class="row mb-3">
                     <label for="id" class="form-label">ID</label>
                     <div class="input-group">
@@ -58,9 +58,9 @@ export default {
             categorie:{
             id:0,
             name: '', 
-            description: '',
+            description: ''
             
-        }
+        },
         
         }
     },
@@ -69,16 +69,16 @@ export default {
             this.$router.push({name: 'Categorie'})
         },
 
-        async saveCategories(){
+        async saveCategorie(){
             this.categorie.id = this.id
-            const res = await axios.post(`http://127.0.0.1:8000/api/categories`, this.categorie)
+            const res = await axios.post(`http://127.0.0.1:8000/api/categories/`, this.categorie)
             console.log(res);
             if (res.status ==200){
                 this.$router.push({name: 'Categorie'})
                 Swal.fire({
-                    position: 'top-end',
+                    position: 'top-center',
                     icon: 'success',
-                    title: 'Client has been Saved',
+                    title: 'Categorie has been Saved',
                     showConfirmButton: false,
                     timer: 2000
                 })

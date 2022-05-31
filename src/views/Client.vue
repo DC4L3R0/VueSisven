@@ -19,7 +19,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="(client,index) in client" :key="index">
+                    <tr v-for="client in client" :key="client.id">
                         <th scope="row">{{client.id}}</th>
                         <td>{{client.name}}</td>
                         <td>{{client.surname}}</td>
@@ -44,8 +44,6 @@
 </template>
 
 <script>
-import axios from "axios";
-import Swal from "sweetalert2";
 
 export default {
     name: 'Client',
@@ -84,7 +82,7 @@ export default {
     },
     mounted(){
         axios
-        .get('http://147.0.0.1:8000/api/client')
+        .get(`http://127.0.0.1:8000/api/client`)
         .then(response => (this.client = response.data.client));
     }, 
 }
