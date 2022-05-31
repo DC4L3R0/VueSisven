@@ -1,8 +1,13 @@
 <template>
-  <nav>
+  <div id="nav">
     <router-link to="/">Home</router-link> |
+
+    <router-link to="/client">Client</router-link> |
+    <router-link to="/categories">Categories</router-link> |
+    <router-link to="/mode_payment">Mode Payment</router-link> |
+    <router-link to="/products">Products</router-link> |
     <router-link to="/about">About</router-link>
-  </nav>
+  </div>
   <router-view/>
 </template>
 

@@ -1,0 +1,89 @@
+<template>
+    <div class="container text-start">
+        <h1 class="text-primary fw-bold">New Categorie</h1>
+        <div class="card">
+            <div class="card-heade fw-bold">
+                Categorie
+            </div>
+            <div class="card-body">
+                <form @submit.prevent="saveCategories">
+                <div class="row mb-3">
+                    <label for="id" class="form-label">ID</label>
+                    <div class="input-group">
+                        <div class="input-group-text"> <font-awesome-icon icon="tag" /></div>
+                        <input type="text" class="form-control" id="id" placeholder="ID Categorie" disabled
+                        v-model="categorie.id"
+                        >
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label for="name" class="form-label">NAME</label>
+                    <div class="input-group">
+                        <div class="input-group-text"> <font-awesome-icon icon="tag" /></div>
+                        <input type="text" class="form-control" id="name" placeholder="Name Categorie" 
+                        v-model="categorie.name"
+                        >
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label for="description" class="form-label">DESCRIPTION</label>
+                    <div class="input-group">
+                        <div class="input-group-text"> <font-awesome-icon icon="tag" /></div>
+                        <input type="text" class="form-control" id="description" placeholder="Description Categorie" 
+                        v-model="categorie.description"
+                        >
+                    </div>
+                </div>
+
+                
+                <button class="btn btn-primary" type="submit">Save</button>
+                <button class="btn btn-secondary mx-2" @click="cancel">Cancel</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+import axios from "axios";
+import Swal from "sweetalert2"
+
+export default {
+    name: 'EditCategorie',
+    data(){
+        return{
+            categorie:{
+            id:0,
+            name: '', 
+            description: '',
+            
+        }
+        
+        }
+    },
+    methods: {
+        cancel(){
+            this.$router.push({name: 'Categorie'})
+        },
+
+        async saveCategories(){
+            this.categorie.id = this.id
+            const res = await axios.post(`http://127.0.0.1:8000/api/categories`, this.categorie)
+            console.log(res);
+            if (res.status ==200){
+                this.$router.push({name: 'Categorie'})
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Client has been Saved',
+                    showConfirmButton: false,
+                    timer: 2000
+                })
+            }
+        }
+    },
+}
+</script>
